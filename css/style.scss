@@ -1,0 +1,318 @@
+//import raleway font
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@800&display=swap');
+@font-face {
+    font-family: neon;
+    src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/707108/neon.ttf);
+  }
+
+//hide the scrollbar
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+
+
+  //remove the padding and margin to all
+* {
+    margin: 0;
+    padding: 0;
+}
+
+//set font and color to whole bidy
+body {
+    font-family: 'Raleway', sans-serif;
+    font-size: 4em;
+    color: white;
+}
+
+//Set Navigation Menu
+li, a { 
+    font-family: "Raleway", sans-serif;
+    font-weight: 500;
+    font-size: 1vw;
+    color: azure;
+    opacity: .7;
+    text-decoration: none;
+}
+
+header {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1% 3%;
+}
+
+.logo {
+    cursor: pointer;
+    font-family: "Raleway", sans-serif;
+    font-weight: 500;
+    font-size: 1.5vw;
+    color: azure;
+    opacity: .7;
+    text-decoration: none;
+}
+
+.nav-link, .sign {
+    list-style: none;
+    display: flex;
+}
+
+.nav-link li, .sign li {
+    display: inline-block;
+    padding: 0 20px;
+}
+.nav-link li, .logo, .sign li{
+    transition: all 0.3s ease 0s;
+}
+
+.sign li a:hover, .nav-link li a:hover, .logo:hover {
+    opacity: 1;
+    color: white;
+}
+.dropbtn {
+    display: none;
+    pointer-events: none;
+}
+
+@media screen and (max-width: 1300px) {
+    .logo {
+        cursor: pointer;
+        font-family: "Raleway", sans-serif;
+        font-weight: 500;
+        font-size: 2.5vw;
+        color: azure;
+        opacity: .7;
+        text-decoration: none;
+    }
+    li, a { 
+        font-family: "Raleway", sans-serif;
+        font-weight: 500;
+        font-size: 2.5vw;
+        color: azure;
+        opacity: .7;
+        text-decoration: none;
+    }
+
+    .dropbtn {
+        display: auto;
+        pointer-events: all;
+    }
+  }
+
+//Add mixin for display of parrallax
+@mixin align-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin align-bottom {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+//Adda a parallax effect
+.parallax_wrapper {
+    height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    perspective: 300px;
+    background-color: black;
+
+    .parallax_group {
+        position: relative;
+        height: 100vh;
+        transform-style: preserve-3d;
+
+        .parallax_layer {
+            position: absolute;
+            inset: 0;
+            @include align-center;
+        }
+
+        .parallax_layer_top {
+            position: absolute;
+            inset: 0;
+        }
+
+        .parallax_layer_mid {
+            position: absolute;
+            inset: 0;
+            @include align-bottom;
+        }
+
+        .base_layer {
+            //scale calculation: 1 + ((Z tansform value * -1) / perspective)
+            background-image: url("img/build.jpg");
+            background-size: auto;
+            background-size: cover;
+            transform: translateZ(-300px) scale(2.1);
+        }
+
+        .mid_layer {
+            transform: translateZ(0);
+            
+        }
+
+        .top_layer {
+            transform: translateZ(190px) scale(0.36);
+        }
+    }
+
+    //set the z-index for hea, intro and group
+    #head {
+        z-index: 0;
+    }
+
+    #intro {
+        z-index: 0;
+    }
+
+    #group-1 {
+        z-index: -1;
+    }
+
+    .mid_layer > p {
+        font-size: 5vw;
+        font-family: neon;
+        position: absolute;
+        color: darkgray;
+        width: fit-content;
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+//Set a grid-container
+.grid-container {
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.grid-item {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3vw;
+    color: aliceblue;
+    opacity: .7;
+    justify-content: center;
+}
+
+.grid-item p {
+    cursor: pointer;
+}
+
+.grid-item:hover{
+    opacity: 1;
+}
+
+//set about on click
+.about {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(20px);
+    width: 100%;
+    height: 80vh;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+  
+  .grid-template{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    border-radius: 4rem;
+    padding: 1%;
+    height: 100%;
+    width: fit-content;
+  }
+
+  .box {
+        width: fit-content;
+        height: 50%;
+        text-align: center;
+        justify-content: center;
+        background-color: black;
+        font-size: 1.5vw;
+        margin: 10px;
+        color: #fff;
+        padding: 1rem 2rem 1rem;
+        border: 0.4rem solid #fff;
+        border-radius: 2rem;
+        text-transform: uppercase;    
+  }
+  
+  .box p {
+    opacity: 0;
+    text-align: left;
+    padding-top: 0.5%;
+    font-size: 1vw;
+  }
+
+  
+.about_click {
+    cursor: pointer;
+  }
+  
+  .back_click {
+    cursor: pointer;
+    position: absolute;
+        bottom: 0;
+  }
+
+  @media screen and (max-width: 1000px) {
+    .about-title {
+        font-size: 5vw;
+        padding-left: 2%;
+    }
+
+    .about {
+        pointer-events: none;
+        transform: translateX(20px);
+        width: 100%;  
+      }
+
+    .grid-template {
+      transform: translateX(20px);
+      width: 100%;
+      height: 10%;
+      border-radius: 4rem;
+      display: table;
+    }
+
+    .box {
+        background-color: black;
+        font-size: 2vw;
+        color: #fff;
+        padding: 1rem 2rem 1rem;
+        border: 0.4rem solid #fff;
+        border-radius: 1rem;
+        text-transform: uppercase;
+        width: 50%;    
+    }
+
+    .box p {
+        opacity: 0;
+        text-align: center;
+        justify-content: center;
+        font-size: 1.5vw;
+      }
+
+      .back_click {
+        padding-left: 2%;
+        cursor: pointer;
+        font-size: 3vw;
+        float: left;
+        position: absolute;
+        bottom: 0;
+      }
+  }
+

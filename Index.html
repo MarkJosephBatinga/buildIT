@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <title>BuildIT</title>
+</head>
+<body>
+    <div class="parallax_wrapper"> 
+        <div class="parallax_group" id="group-1">
+            <div id="base" class="parallax_layer base_layer"></div>
+            <div class="parallax_layer_mid mid_layer">
+                <p class="neon" id="about">How It Works</p>
+                <p class="neon" id="component">Select Your Components</p>
+                <p class="neon" id="services">What We Offer</p>
+            </div>
+            <div class="parallax_layer_top top_layer">
+                <header>
+                    <h1 class="logo neon">buildIT</h1>
+                    <div class="sign">
+                        <li><a href="#">Log-In</a></li>
+                        <li><a href="#">Sign-Up</a></li>
+                    </div>
+                </header>
+                <div id="about-div" class="about">
+                    <h3 class="about-title">How It Works</h3>
+                    <div class="grid-template">
+                        <div id="neon-start-div" class="box" onmouseover="AboutMouseOnHover(this, 'p-start', 'neon-start-div')" onmouseleave="AboutMouseOnLeave(this, 'p-start', 'neon-start-div')">
+                            Start Building
+                            <p id="p-start">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, et!</p>
+                        </div>
+                        <div id="neon-component-div" class="box" onmouseover="AboutMouseOnHover(this, 'p-component', 'neon-component-div')" onmouseleave="AboutMouseOnLeave(this, 'p-component', 'neon-component-div')">
+                            Select Components
+                            <p id="p-component">Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, maiores.</p>
+                        </div>
+                        <div id="neon-service-div" class="box" onmouseover="AboutMouseOnHover(this, 'p-service', 'neon-service-div')" onmouseleave="AboutMouseOnLeave(this, 'p-service', 'neon-service-div')">
+                            Choose A Service
+                            <p id="p-service">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, quos?</p>
+                        </div>
+                        <div id="neon-payment-div" class="box" onmouseover="AboutMouseOnHover(this, 'p-payment', 'neon-payment-div')" onmouseleave="AboutMouseOnLeave(this, 'p-payment', 'neon-payment-div')">
+                            Make Payment
+                            <p id="p-payment">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam, velit?</p>
+                        </div>
+                        <div id="neon-product-div" class="box" onmouseover="AboutMouseOnHover(this, 'p-product', 'neon-product-div')" onmouseleave="AboutMouseOnLeave(this, 'p-product', 'neon-product-div')">
+                            Receive Product
+                            <p id="p-product">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Expedita, dolores.</p>
+                        </div>
+                    </div>
+                    <p id="back" class="back_click" onclick="BackOnClick(this, 'about-div', 'grid-contain')">Back</p>
+                </div>
+                <div class="component">
+                   
+                </div>
+                <div class="services">
+                    
+                </div>
+                <div id="grid-contain" class="grid-container">
+                    <div class="grid-item" onmouseover="MouseOnHover(this, 'about', 'css/img/build.jpg')" onmouseleave="MouseOnLeave(this, 'about')">
+                        <p id="grid_about" class="about_click" onclick="AboutOnClick(this, 'about-div', 'grid-contain')">About</p>
+                    </div>
+                    <div class="grid-item" id="grid-customize" onmouseover="MouseOnHover(this, 'component', 'css/img/customize.jpg')" onmouseleave="MouseOnLeave(this, 'component')">
+                        <p id="grid-component">Components</p>
+                    </div>
+                    <div class="grid-item" onmouseover="MouseOnHover(this, 'services', 'css/img/play.jpg')" onmouseleave="MouseOnLeave(this, 'services')">
+                        <p id="grid-services">Offers</p>
+                    </div>  
+                </div>  
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
